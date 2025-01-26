@@ -1,0 +1,34 @@
+name: cd-develop
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build-develop-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chekcout repo
+        uses: actions/checkout@v4
+      - name: Build Project
+        run: |
+          npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
+      - name: upload gh pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+          name: "develop-build-artifact"
+  deploye-develop-job:
+    needs: "build-develop-job"
+    environment: 
+      name: "develop-env"
+    permissions:
+      pages: write
+      id-token: write      
+    runs-on: ubuntu-latet
+    steps: 
+      - name: Deploye GH-Pages Artifact
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: "build-develop-job"
+          token: ${{github.token}}
+    
