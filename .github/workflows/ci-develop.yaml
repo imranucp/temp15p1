@@ -1,0 +1,18 @@
+name: ci-develop
+on:
+  pull_request:
+    branches:
+      - develop
+jobs:
+  lint-build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Lint HTML and CSS
+        run: |
+          npx htmlhint "**/*.html"
+          npx stylelint "**/*.css"
+      - name: Verify Build
+        run: |
+          npx parcel build "./src/index.html"  --dist-dir "./dist" --public-url "./"
