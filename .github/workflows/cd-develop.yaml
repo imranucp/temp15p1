@@ -26,9 +26,9 @@ jobs:
       id-token: write      
     runs-on: ubuntu-latest
     steps: 
-      - name: Deploye GH-Pages Artifact
+      - name: Deploy GH-Pages Artifact
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: "build-develop-job"
+          artifact_name: "develop-build-artifact"
           token: ${{github.token}}
     
