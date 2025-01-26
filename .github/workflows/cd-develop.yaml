@@ -17,7 +17,7 @@ jobs:
         with:
           path: "./dist"
           name: "develop-build-artifact"
-  deploye-develop-job:
+  deploy-develop-job:
     needs: "build-develop-job"
     environment: 
       name: "develop-env"
