@@ -24,7 +24,7 @@ jobs:
     permissions:
       pages: write
       id-token: write      
-    runs-on: ubuntu-latet
+    runs-on: ubuntu-latest
     steps: 
       - name: Deploye GH-Pages Artifact
         uses: actions/deploy-pages@v4
