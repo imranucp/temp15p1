@@ -16,7 +16,8 @@ jobs:
         run: |
           echo "_______Following is the Currently Checkout Branch_______"
           git branch
-          git fs-files
+          git l
+          s-files
       - name: Lint HTML and CSS
         run: |
           npx htmlhint "**/*.html"
