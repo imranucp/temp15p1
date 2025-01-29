@@ -12,7 +12,7 @@ jobs:
         with:
           ref: ${{github.ref}}
       - name: Build Artifact
-        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url
+        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
       - name: Upload GH Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
